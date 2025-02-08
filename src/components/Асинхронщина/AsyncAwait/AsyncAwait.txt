@@ -1,0 +1,32 @@
+async/await - синтаксис, позволяющий прописывать асинхронную логику синхронным образом
+
+ключевое слово async перед любой функцией делает ее асинхронной,
+следовательно эта функция будет возвращать промис
+
+async function fetchData() {
+    return "Данные загружены";
+}
+
+console.log(fetchData()); // Promise { "Данные загружены" }
+
+fetchData().then(console.log); // "Данные загружены"
+
+-----------------------------------------------------------------------
+
+await заставляет JavaScript дождаться выполнения промиса перед продолжением выполнения кода.
+
+await можно использовать только в async-функциях
+
+function getData() {
+    return new Promise(resolve => {
+        setTimeout(() => resolve("Данные получены"), 2000);
+    });
+}
+
+async function fetchData() {
+    console.log("Загрузка...");
+    let data = await getData(); // Ожидаем завершения промиса
+    console.log(data);
+}
+
+fetchData();

@@ -139,6 +139,11 @@ const PromiseTest = () => {
 
   // loadData()
 
+  const result = [1, 2, 3]
+    .map(num => num * 2)  // [2, 4, 6]
+    .map(num => num + 1); // [3, 5, 7]
+
+  console.log(result);
   
 
   return (
